@@ -1,9 +1,2 @@
-# apt update 
-# apt upgrade
-# apt install python
-# apt install git
-# git clone https://github.com/echoeyesdev/echoeyes-hunting
-# cd echoeyes-hunting 
-# apt install pip
-# pip install -r requirements.txt
-# python echoeyes.py
+python host checker bot 
+it is an open source you're free to edit it 
