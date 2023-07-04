@@ -66,7 +66,7 @@ def cloudfront(url):
         try: 
             
             response = request.get(httpwebsite)
-            if response.status_code == 200 and response.headers["Server"] == "cloudfront":
+            if response.status_code == 200 and response.headers["Server"] == "cloudfront" or response.headers["Server"] == "AmazonS3":
                 print(count, f"{green}[working] {blue}[{url}]{white}")
             else:
                 print(count, f"{red}[N/W][{url}]{white}")
@@ -87,7 +87,7 @@ def nginx(url):
             
             response = request.get(httpwebsite)
             server = response.headers["Server"]
-            if response.status_code == 200 and response.headers["Server"] == "nginx" in server:
+            if response.status_code == 200 and "nginx" in server:
                 print(count, f"{green}[working] {blue}[{url}]{white}")
             else:
                 print(count, f"{red}[N/W][{url}]{white}")
@@ -108,7 +108,8 @@ def apache(url):
         try: 
             
             response = request.get(httpwebsite)
-            if response.status_code == 200 and response.headers["Server"] == "Apache":
+            server = response.headers["Server"]
+            if response.status_code == 200 and "Apache" in server:
                 print(count, f"{green}[working] {blue}[{url}]{white}")
             else:
                 print(count, f"{red}[N/W][{url}]{white}")
